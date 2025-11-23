@@ -1,9 +1,12 @@
 /* --------------------
-        全体
+      全体
 -------------------- */
 
 :root {
-  --theme-color: #00a0a0;
+  /* テーマカラーをネイビーに変更 */
+  --theme-color: #3498db;
+  /* アクセントカラーとして薄いグレーを追加 */
+  --light-gray: #ecf0f1;
 }
 
 * {
@@ -18,60 +21,88 @@ html, body {
 body {
   margin: 0;
   padding: 30px;
+  /* フォントを日本語で一般的なゴシック体に変更（可読性向上） */
+  font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
   color: #333;
+  line-height: 1.6; /* 行間を広げて読みやすく */
 }
 
 /* --------------------
-        見出し
+      見出し
 -------------------- */
 
 h1, h2, h3 {
   color: var(--theme-color);
-  border-bottom: dashed 0.1em var(--theme-color);
+  /* 破線ボーダーから実線の強調ボーダーに変更 */
+  border-bottom: solid 3px var(--theme-color);
+  padding-bottom: 0.3em;
+  margin-top: 1.5em; /* 上の余白を増やして区切りを明確に */
 }
 
 /* --------------------
-        リンク
+      リンク
 -------------------- */
 
 a {
   color: var(--theme-color);
   text-decoration: none;
+  /* ホバー時にアンダーラインを表示 */
+  transition: color 0.3s;
+}
+a:hover {
+  text-decoration: underline;
+  color: #2980b9; /* 少し濃い色に変化 */
 }
 
 /* --------------------
-        リスト
+      リスト
 -------------------- */
 
 ul {
+  /* リストのインデントをリセットし、読みやすく調整 */
   list-style: none;
+  padding-left: 1.5em;
+}
+li {
+  margin-bottom: 0.5em;
+  position: relative;
 }
 li:before {
-  content: "★";
+  /* リストマークをシンプルでモダンな「●」に変更 */
+  content: "●";
   color: var(--theme-color);
+  font-size: 0.8em;
+  position: absolute;
+  left: -1.2em;
+  top: 0.2em;
 }
 
 /* --------------------
-          表
+        表
 -------------------- */
 
 table {
   border-spacing: 0;
   border-collapse: collapse;
-  border: solid 1px #f0f0f0;
+  /* 罫線を薄いグレーに変更 */
+  border: solid 1px var(--light-gray);
   min-width: 70%;
+  width: 100%; /* 幅を親要素いっぱいに広げる */
 }
 tr {
   background-color: #fff;
 }
+/* 偶数行の色をより控えめな背景色に変更 */
 tr:nth-child(2n) {
-  background-color: #f9f9f9;
+  background-color: var(--light-gray);
 }
 th {
   background: var(--theme-color);
   color: #fff;
+  font-weight: bold; /* ヘッダーを強調 */
+  text-align: left; /* テキストを左寄せに */
 }
 th, td {
-  border: solid 1px #f0f0f0;
-  padding: 0.5rem;
+  border: solid 1px var(--light-gray);
+  padding: 0.8rem; /* セルのパディングを増やして見やすく */
 }
