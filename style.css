@@ -3,16 +3,13 @@
 -------------------- */
 
 :root {
-  /* テーマカラーをシンプルに再定義（落ち着いた青） */
-  --theme-color: #007bff;
+  /* テーマカラーを深いパープルに変更 */
+  --theme-color: #8e44ad;
   /* 偶数行用の背景色 */
-  --light-bg-color: #f8f9fa;
-  /* ボーダー用の色 */
-  --border-color: #dee2e6;
+  --light-bg-color: #f4ecf7; 
 }
 
 * {
-  /* box-sizing はそのまま維持 */
   box-sizing: border-box;
 }
 
@@ -24,10 +21,7 @@ html, body {
 body {
   margin: 0;
   padding: 30px;
-  /* フォントを一般的な日本語・欧文フォントに指定 */
-  font-family: 'Helvetica Neue', Arial, 'Hiragino Sans', 'Meiryo', sans-serif;
-  color: #212529; /* 濃いめのグレーで文字色を統一 */
-  line-height: 1.6;
+  color: #333;
 }
 
 /* --------------------
@@ -36,10 +30,7 @@ body {
 
 h1, h2, h3 {
   color: var(--theme-color);
-  /* 下線をシンプルで明確なデザインに変更 */
-  border-bottom: solid 2px var(--theme-color);
-  padding-bottom: 0.3em;
-  margin-top: 1.5em;
+  border-bottom: dashed 0.1em var(--theme-color);
 }
 
 /* --------------------
@@ -50,32 +41,17 @@ a {
   color: var(--theme-color);
   text-decoration: none;
 }
-a:hover {
-  /* ホバー時のみ下線を表示 */
-  text-decoration: underline;
-}
 
 /* --------------------
       リスト
 -------------------- */
 
 ul {
-  /* リストマークをデフォルトに戻してシンプルなデザインに */
-  list-style-type: none;
-  padding-left: 20px;
-}
-li {
-  margin-bottom: 0.5em;
-  position: relative;
+  list-style: none;
 }
 li:before {
-  /* シンプルな四角（■）をリストマークとして使用 */
-  content: "■";
+  content: "★";
   color: var(--theme-color);
-  font-size: 0.7em;
-  position: absolute;
-  left: -15px;
-  top: 0.2em;
 }
 
 /* --------------------
@@ -85,27 +61,21 @@ li:before {
 table {
   border-spacing: 0;
   border-collapse: collapse;
-  /* ボーダーの色を統一 */
-  border: solid 1px var(--border-color);
-  width: 100%;
-  max-width: 100%;
-  margin: 1em 0;
+  border: solid 1px #f0f0f0;
+  min-width: 70%;
 }
 tr {
   background-color: #fff;
 }
-/* 偶数行の背景色を適用 */
+/* 偶数行の背景色をテーマに合わせた薄いラベンダーに変更 */
 tr:nth-child(2n) {
-  background-color: var(--light-bg-color);
+  background-color: var(--light-bg-color); 
 }
 th {
   background: var(--theme-color);
   color: #fff;
-  font-weight: bold;
-  text-align: left;
 }
 th, td {
-  /* セルのボーダーを統一 */
-  border: solid 1px var(--border-color);
-  padding: 0.75rem;
+  border: solid 1px #f0f0f0;
+  padding: 0.5rem;
 }
