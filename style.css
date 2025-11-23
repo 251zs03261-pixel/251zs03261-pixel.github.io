@@ -3,13 +3,16 @@
 -------------------- */
 
 :root {
-  /* テーマカラーをネイビーに変更 */
-  --theme-color: #3498db;
-  /* アクセントカラーとして薄いグレーを追加 */
-  --light-gray: #ecf0f1;
+  /* テーマカラーをシンプルに再定義（落ち着いた青） */
+  --theme-color: #007bff;
+  /* 偶数行用の背景色 */
+  --light-bg-color: #f8f9fa;
+  /* ボーダー用の色 */
+  --border-color: #dee2e6;
 }
 
 * {
+  /* box-sizing はそのまま維持 */
   box-sizing: border-box;
 }
 
@@ -21,10 +24,10 @@ html, body {
 body {
   margin: 0;
   padding: 30px;
-  /* フォントを日本語で一般的なゴシック体に変更（可読性向上） */
-  font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
-  color: #333;
-  line-height: 1.6; /* 行間を広げて読みやすく */
+  /* フォントを一般的な日本語・欧文フォントに指定 */
+  font-family: 'Helvetica Neue', Arial, 'Hiragino Sans', 'Meiryo', sans-serif;
+  color: #212529; /* 濃いめのグレーで文字色を統一 */
+  line-height: 1.6;
 }
 
 /* --------------------
@@ -33,10 +36,10 @@ body {
 
 h1, h2, h3 {
   color: var(--theme-color);
-  /* 破線ボーダーから実線の強調ボーダーに変更 */
-  border-bottom: solid 3px var(--theme-color);
+  /* 下線をシンプルで明確なデザインに変更 */
+  border-bottom: solid 2px var(--theme-color);
   padding-bottom: 0.3em;
-  margin-top: 1.5em; /* 上の余白を増やして区切りを明確に */
+  margin-top: 1.5em;
 }
 
 /* --------------------
@@ -46,12 +49,10 @@ h1, h2, h3 {
 a {
   color: var(--theme-color);
   text-decoration: none;
-  /* ホバー時にアンダーラインを表示 */
-  transition: color 0.3s;
 }
 a:hover {
+  /* ホバー時のみ下線を表示 */
   text-decoration: underline;
-  color: #2980b9; /* 少し濃い色に変化 */
 }
 
 /* --------------------
@@ -59,21 +60,21 @@ a:hover {
 -------------------- */
 
 ul {
-  /* リストのインデントをリセットし、読みやすく調整 */
-  list-style: none;
-  padding-left: 1.5em;
+  /* リストマークをデフォルトに戻してシンプルなデザインに */
+  list-style-type: none;
+  padding-left: 20px;
 }
 li {
   margin-bottom: 0.5em;
   position: relative;
 }
 li:before {
-  /* リストマークをシンプルでモダンな「●」に変更 */
-  content: "●";
+  /* シンプルな四角（■）をリストマークとして使用 */
+  content: "■";
   color: var(--theme-color);
-  font-size: 0.8em;
+  font-size: 0.7em;
   position: absolute;
-  left: -1.2em;
+  left: -15px;
   top: 0.2em;
 }
 
@@ -84,25 +85,27 @@ li:before {
 table {
   border-spacing: 0;
   border-collapse: collapse;
-  /* 罫線を薄いグレーに変更 */
-  border: solid 1px var(--light-gray);
-  min-width: 70%;
-  width: 100%; /* 幅を親要素いっぱいに広げる */
+  /* ボーダーの色を統一 */
+  border: solid 1px var(--border-color);
+  width: 100%;
+  max-width: 100%;
+  margin: 1em 0;
 }
 tr {
   background-color: #fff;
 }
-/* 偶数行の色をより控えめな背景色に変更 */
+/* 偶数行の背景色を適用 */
 tr:nth-child(2n) {
-  background-color: var(--light-gray);
+  background-color: var(--light-bg-color);
 }
 th {
   background: var(--theme-color);
   color: #fff;
-  font-weight: bold; /* ヘッダーを強調 */
-  text-align: left; /* テキストを左寄せに */
+  font-weight: bold;
+  text-align: left;
 }
 th, td {
-  border: solid 1px var(--light-gray);
-  padding: 0.8rem; /* セルのパディングを増やして見やすく */
+  /* セルのボーダーを統一 */
+  border: solid 1px var(--border-color);
+  padding: 0.75rem;
 }
